@@ -157,6 +157,25 @@ fn my_if_let() {
         println!("Not a lucky number :(");
     }
 }
+
+trait Shape {
+    fn area(&self) -> u32;
+}
+// Traits的有效使用：提高通用性与灵活性
+// shape1和shape2可能是不同的类型
+fn compare_areas_v1(shape1: &impl Shape, shape2: &impl Shape) {
+    if shape1.area() == shape2.area() {
+        println!("The areas are the same!");
+    }
+}
+
+// 使用泛型参数T 来明确限制shape1 和shape2 必须是相同类型的Shape，能够提高代码的类型安全性，避免了过度泛化的情况。
+fn compare_areas_v2<T: Shape>(shape1: &T, shape2: &T) {
+    if shape1.area() == shape2.area() {
+        println!("The areas are the same!");
+    }
+}
+
 #[allow(unused_imports)]
 #[cfg(test)]
 mod tests {
