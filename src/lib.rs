@@ -188,6 +188,33 @@ pub fn calculate_length_v3(s: impl AsRef<str>) -> usize {
     s.as_ref().len()
 }
 
+fn is_even_v1(num: i32) -> bool {
+    if num % 2 == 0 {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+fn is_even_v2(num: i32) -> bool {
+    num % 2 == 0
+}
+
+fn square_v1(num: i32) -> i32 {
+    num * num
+}
+
+fn positive_v1(n: i32) -> Option<i32> {
+    if n > 0 {
+        Some(n)
+    } else {
+        None
+    }
+}
+
+fn positive_v2(n: i32) -> Option<i32> {
+    (n > 0).then(|| n)
+}
 #[allow(unused_imports)]
 #[cfg(test)]
 mod tests {
