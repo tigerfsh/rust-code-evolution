@@ -176,6 +176,18 @@ fn compare_areas_v2<T: Shape>(shape1: &T, shape2: &T) {
     }
 }
 
+fn calculate_length_v1(s: &String) -> usize {
+    s.len()
+}
+
+fn calculate_length_v2(s: &str) -> usize {
+    s.len()
+}
+
+pub fn calculate_length_v3(s: impl AsRef<str>) -> usize {
+    s.as_ref().len()
+}
+
 #[allow(unused_imports)]
 #[cfg(test)]
 mod tests {
